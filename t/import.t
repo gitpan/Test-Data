@@ -1,0 +1,27 @@
+# $Id: import.t,v 1.2 2002/09/21 20:13:33 comdog Exp $
+
+use Test::More tests => 11;
+
+require Test::Data;
+
+Test::Data->import( qw(Scalar Array Hash Function) );
+
+# Scalar
+ok( defined &number_ok,      "Scalar package exported number_ok"      );
+
+# Array
+ok( defined &array_any_ok,      "Array package exported is_any_ok"       );
+ok( defined &array_none_ok,     "Array package exported is_none_ok"      );
+ok( defined &array_once_ok,     "Array package exported is_once_ok"      );
+ok( defined &array_multiple_ok, "Array package exported is_multiple_ok"  );
+ok( defined &array_max_ok,      "Array package exported is_maximum_ok"   );
+ok( defined &array_min_ok,      "Array package exported is_minimum_ok"   );
+
+# Hashes
+ok( defined &exists_ok,      "Hash package exported exists_ok"        );
+ok( defined &defined_ok,     "Hash package exported defined_ok"       );
+ok( defined &hash_value_true_ok,     "Hash package exported defined_ok"       );
+
+# Functions
+ok( defined &prototype_ok,   "Function package exported prototype_ok" );
+

@@ -7,6 +7,8 @@ lib/Scalar.pm
 lib/Function.pm
 t/load.t
 t/pod.t
+t/prereq.t
+t/import.t
 t/scalar.t
 t/array.t
 t/hash.t

@@ -8,19 +8,21 @@ my $tests = do {
 
 WriteMakefile
         (
-        'NAME'      => 'Test::Data',
-        'ABSTRACT'  => 'Check data type properties and values',
-        'VERSION'   => '0.5_05',
+        'NAME'           => 'Test::Data',
+        'ABSTRACT'       => 'Check data type properties and values',
+        'VERSION_FROM'   => 'lib/Data.pm',
+        
  		'PREREQ_PM' => {
- 			'File::Find::Rule'      => 0,
- 			'List::Util'            => 0,
- 			'Scalar::Util'          => 0,
- 			'Test::Pod'             => 0,
- 			'Test::Builder'         => 0,
- 			'Test::More'            => 0,
- 			'Test::Builder::Tester' => 0,
- 			'Test::Prereq'          => 0,
+ 			'File::Find::Rule'      => '0',
+ 			'List::Util'            => '0',
+ 			'Scalar::Util'          => '0',
+ 			'Test::Builder'         => '0',
+ 			'Test::Builder::Tester' => '0',
+  			'Test::More'            => '0',
+			'Test::Pod'             => '0',
+ 			'Test::Prereq'          => '0',
  			},
+ 			
         'PM'        => 
         	{
             'lib/Data.pm'     => '$(INST_LIBDIR)/Data.pm',
