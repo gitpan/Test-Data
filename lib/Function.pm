@@ -1,5 +1,5 @@
 package Test::Data::Function;
-# $Id: Function.pm,v 1.1 2002/09/02 21:07:24 comdog Exp $
+# $Id: Function.pm,v 1.2 2002/09/03 09:13:39 comdog Exp $
 use strict;
 
 use base qw(Exporter);
@@ -7,6 +7,7 @@ use vars qw(@EXPORT);
 
 @EXPORT = qw(prototype_ok);
 
+use Test::Builder;
 my $Test = Test::Builder->new();
 	
 =head1 NAME
