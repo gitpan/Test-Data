@@ -1,4 +1,4 @@
-# $Id: Makefile.PL,v 1.3 2002/09/03 06:17:36 comdog Exp $
+# $Id: Makefile.PL,v 1.4 2002/09/21 20:10:21 comdog Exp $
 use ExtUtils::MakeMaker;
 
 use Test::Manifest qw(get_t_files);
@@ -7,7 +7,7 @@ WriteMakefile
         (
         'NAME'      => 'Test::Data',
         'ABSTRACT'  => 'Check data type properties and values',
-        'VERSION'   => '0.5_03',
+        'VERSION'   => '0.5_04',
  		'PREREQ_PM' => {
  			'Test::Pod'             => 0,
  			'Test::Manifest'        => 0,
