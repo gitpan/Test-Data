@@ -1,4 +1,4 @@
-# $Id: Array.pm,v 1.11 2004/04/22 16:49:59 comdog Exp $
+# $Id: Array.pm,v 1.12 2004/05/31 06:13:16 comdog Exp $
 package Test::Data::Array;
 use strict;
 
@@ -12,7 +12,7 @@ use vars qw(@EXPORT $VERSION);
 	array_sorted_ascending_ok array_sorted_descending_ok
 	);
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.11 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.12 $ =~ m/ (\d+) \. (\d+) /xg;
 
 use List::Util qw(sum min max minstr maxstr);
 
@@ -90,16 +90,13 @@ sub array_once_ok($\@;$)
 	my $name    = shift || 'Array contains item only once';
 
 	my %seen = ();
-	foreach my $item ( @$array )
-		{
-		if ( $seen{$item}++ > 1 )
-			{
-			$Test->ok( 0, $name );
-			return;
-			}
-		}
 
-	$Test->ok( 1, $name );
+	my $ok = 0;
+	foreach my $item ( @$array ) { ++$seen{$item} }
+
+	$ok = 1 if( defined $seen{$element} and $seen{$element} == 1 );
+		
+	$Test->ok( $ok, $name );
 	}
 
 =item array_multiple_ok( ITEM, ARRAY [, NAME] )
