@@ -1,4 +1,4 @@
-# $Id: Array.pm,v 1.12 2004/05/31 06:13:16 comdog Exp $
+# $Id: Array.pm,v 1.13 2004/09/03 02:01:30 comdog Exp $
 package Test::Data::Array;
 use strict;
 
@@ -12,7 +12,7 @@ use vars qw(@EXPORT $VERSION);
 	array_sorted_ascending_ok array_sorted_descending_ok
 	);
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.12 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.13 $ =~ m/ (\d+) \. (\d+) /xg;
 
 use List::Util qw(sum min max minstr maxstr);
 
@@ -35,7 +35,7 @@ use Test::Data qw(Array);
 
 =item array_any_ok( ITEM, ARRAY [, NAME] )
 
-Ok is any element of ARRAY is ITEM.
+Ok if any element of ARRAY is ITEM.
 
 =cut
 
@@ -57,7 +57,7 @@ sub array_any_ok($\@;$)
 
 =item array_none_ok( ITEM, ARRAY [, NAME] )
 
-Ok is no element of ARRAY is ITEM.
+Ok if no element of ARRAY is ITEM.
 
 =cut
 
@@ -79,7 +79,7 @@ sub array_none_ok($\@;$)
 
 =item array_once_ok( ITEM, ARRAY [, NAME] )
 
-Ok is only one element of ARRAY is ITEM.
+Ok if only one element of ARRAY is ITEM.
 
 =cut
 
@@ -122,7 +122,7 @@ sub array_multiple_ok($\@;$)
 
 =item array_max_ok( NUMBER, ARRAY [, NAME] )
 
-Ok is all elements of ARRAY are numerically less than
+Ok if all elements of ARRAY are numerically less than
 or equal to NUMBER.
 
 =cut
@@ -140,7 +140,7 @@ sub array_max_ok($\@;$)
 
 =item array_min_ok( NUMBER, ARRAY [, NAME] )
 
-Ok is all elements of ARRAY are numerically greater than
+Ok if all elements of ARRAY are numerically greater than
 or equal to NUMBER.
 
 =cut
@@ -158,7 +158,7 @@ sub array_min_ok($\@;$)
 
 =item array_maxstr_ok( ITEM, ARRAY [, NAME] )
 
-Ok is all elements of ARRAY are asciibetically less than
+Ok if all elements of ARRAY are asciibetically less than
 or equal to MAX.
 
 =cut
@@ -176,7 +176,7 @@ sub array_maxstr_ok($\@;$)
 
 =item array_minstr_ok( ITEM, ARRAY [, NAME] )
 
-Ok is all elements of ARRAY are asciibetically greater than
+Ok if all elements of ARRAY are asciibetically greater than
 or equal to MAX.
 
 =cut
@@ -194,7 +194,7 @@ sub array_minstr_ok($\@;$)
 
 =item array_sum_ok( SUM, ARRAY [, NAME] )
 
-Ok is the numerical sum of ARRAY is SUM.
+Ok if the numerical sum of ARRAY is SUM.
 
 =cut
 
@@ -381,11 +381,11 @@ members of the project can shepherd this module appropriately.
 
 =head1 AUTHOR
 
-brian d foy, E<lt>bdfoy@cpan.orgE<gt>
+brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Copyright 2002, brian d foy, All Rights Reserved
+Copyright 2002-2004, brian d foy, All Rights Reserved
 
 You may use, modify, and distribute this under the same terms
 as Perl itself.

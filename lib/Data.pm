@@ -1,4 +1,4 @@
-# $Id: Data.pm,v 1.14 2004/05/31 06:15:42 comdog Exp $
+# $Id: Data.pm,v 1.16 2004/09/03 02:02:43 comdog Exp $
 package Test::Data;
 use strict;
 
@@ -9,7 +9,7 @@ use Carp qw(carp);
 use Test::Builder;
 
 my $Test = Test::Builder->new();
-$VERSION = 1.01;
+$VERSION = 1.02;
 
 =head1 NAME
 
@@ -86,11 +86,11 @@ members of the project can shepherd this module appropriately.
 
 =head1 AUTHOR
 
-brian d foy, E<lt>bdfoy@cpan.orgE<gt>
+brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Copyright 2003, brian d foy, All Rights Reserved
+Copyright 2002-2004, brian d foy, All Rights Reserved
 
 You may use, modify, and distribute this under the same terms
 as Perl itself.
