@@ -1,4 +1,22 @@
-# $Id: Changes,v 1.3 2002/11/05 01:43:17 comdog Exp $
+# $Id: Changes,v 1.7 2003/05/12 02:27:39 petdance Exp $
+
+0.92 - Sun May 11, 2003 21:26:00 2003 
+	* Fixed hash_value_false_ok(), which was never defined.
+
+	* Fixed incorrect $VERSION in each package.
+
+	* Removed requirements on Test::Manifest and Test::Prereq.
+	  Test::Pod can get used on the install, but it's OK if not.
+
+0.91 - Fri Dec 20 16:48:58 2002
+	* functions from Scalar::Util need full package specification
+	since i do not import them.  this fixes all of the functions
+	based on Scalar::Util.
+
+	* removed dualvar test.  it does not work, and i need to figure
+	out how to make it work
+
+	* cleaned up the Pod which had some extra whitespace in places
 
 0.9 Mon Nov  4 19:41:52 CST 2002
 	+ fixed some calls to ok() that were missing name parameter

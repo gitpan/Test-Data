@@ -1,13 +1,21 @@
-# $Id: pod.t,v 1.1 2002/09/02 21:07:04 comdog Exp $
-BEGIN {
-	use File::Find::Rule;
-	@files = File::Find::Rule->file()->name( '*.pm' )->in( 'blib/lib' );
-	}
+# $Id: pod.t,v 1.2 2003/05/11 04:52:25 petdance Exp $
 
-use Test::More tests => scalar @files;
-use Test::Pod;
+use Test::More;
+use File::Spec;
+use File::Find;
+use strict;
 
-foreach my $file ( @files )
-	{
-	pod_ok( $file );
-	}
+eval "use Test::Pod 0.95";
+
+if ($@) {
+    plan skip_all => "Test::Pod v0.95 required for testing POD";
+} else {
+    Test::Pod->import;
+    my @files;
+    my $blib = File::Spec->catfile(qw(blib lib));
+    find( sub {push @files, $File::Find::name if /\.p(l|m|od)$/}, $blib);
+    plan tests => scalar @files;
+    foreach my $file (@files) {
+	pod_file_ok($file);
+    }
+}

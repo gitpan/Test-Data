@@ -1,4 +1,4 @@
-# $Id: Hash.pm,v 1.4 2002/12/20 22:43:16 comdog Exp $
+# $Id: Hash.pm,v 1.6 2003/05/11 05:10:54 petdance Exp $
 package Test::Data::Hash;
 use strict;
 
@@ -8,7 +8,7 @@ use vars qw(@EXPORT $VERSION);
 @EXPORT = qw(exists_ok not_exists_ok
 	hash_value_defined_ok hash_value_undef_ok
 	hash_value_true_ok hash_value_false_ok);
-$VERSION = sprintf "%d.%02d", q$Revision: 1.4 $ =~ m/ (\d+) \. (\d+) /g;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.6 $ =~ m/ (\d+) \. (\d+) /xg;
 
 use Test::Builder;
 my $Test = Test::Builder->new();
@@ -117,7 +117,7 @@ does not create KEY in HASH.
 
 =cut
 
-sub hash_value_true_ok($\%;$)
+sub hash_value_false_ok($\%;$)
 	{
 	my $key  = shift;
 	my $hash = shift;

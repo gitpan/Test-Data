@@ -1,4 +1,4 @@
-# $Id: Function.pm,v 1.4 2002/12/20 22:43:16 comdog Exp $
+# $Id: Function.pm,v 1.5 2003/05/11 05:08:05 petdance Exp $
 package Test::Data::Function;
 use strict;
 
@@ -6,7 +6,7 @@ use base qw(Exporter);
 use vars qw(@EXPORT $VERSION);
 
 @EXPORT  = qw(prototype_ok);
-$VERSION = sprintf "%d.%02d", q$Revision: 1.4 $ =~ m/ (\d+) \. (\d+) /g;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.5 $ =~ m/ (\d+) \. (\d+) /xg;
 
 use Test::Builder;
 my $Test = Test::Builder->new();

@@ -1,17 +1,17 @@
-# $Id: load.t,v 1.2 2002/10/23 18:54:38 comdog Exp $
-BEGIN {
-	use File::Find::Rule;
-	@classes = map { my $x = $_;
-		$x =~ s|^blib/lib/||;
-		$x =~ s|/|::|g;
-		$x =~ s|\.pm$||;
-		$x;
-		} File::Find::Rule->file()->name( '*.pm' )->in( 'blib/lib' );
-	}
+# $Id: load.t,v 1.4 2003/05/11 05:08:05 petdance Exp $
 
-use Test::More tests => scalar @classes;
-	
-foreach my $class ( @classes )
-	{
-	print "bail out! Could not compile $class" unless use_ok( $class );
-	}
+use Test::More;
+
+BEGIN { 
+    @modules = qw( Test::Data Test::Data::Array Test::Data::Function Test::Data::Hash Test::Data::Function );
+    plan tests => @modules * 2;
+    
+
+    foreach $module ( @modules ) {
+	use_ok( $module );
+
+	my $var = '$' . $module . '::VERSION';
+	my $ver = eval $var;
+	cmp_ok( $ver, '>', 0 );
+    }
+}

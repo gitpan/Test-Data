@@ -1,4 +1,4 @@
-# $Id: Scalar.pm,v 1.11 2002/12/20 22:43:16 comdog Exp $
+# $Id: Scalar.pm,v 1.12 2003/05/11 05:08:05 petdance Exp $
 package Test::Data::Scalar;
 use strict;
 
@@ -15,7 +15,7 @@ use Test::Builder;
 	untainted_ok weak_ok undef_ok number_between_ok
 	string_between_ok
 	);
-$VERSION = sprintf "%d.%02d", q$Revision: 1.11 $ =~ m/ (\d+) \. (\d+) /g;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.12 $ =~ m/ (\d+) \. (\d+) /xg;
 
 my $Test = Test::Builder->new();
 
