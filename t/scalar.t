@@ -1,9 +1,9 @@
-# $Id: scalar.t,v 1.8 2002/12/20 22:42:53 comdog Exp $
+# $Id: scalar.t,v 1.9 2003/11/30 01:26:05 petdance Exp $
 
 use Test::Builder::Tester tests => 58;
 use Test::More;
-use Test::Data qw(Scalar);
 
+use_ok( 'Test::Data', 'Scalar' );
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 foreach my $value ( [], {} )
@@ -55,16 +55,6 @@ foreach my $value ( 'foo', '', 0, '0' )
 	undef_ok( 'foo' );
 	test_test('undef_ok catches defined value');
 	}
-
-TODO: {
-local $TODO = "This doesn't work yet";
-
-test_out('not ok 1 - Scalar is undefined');
-test_diag("    Failed test ($0 at line " . line_num(+2) . ")",
-	"Expected an undefined value, but got no arguments");
-undef_ok( () );
-test_test('undef_ok catches empty list');
-}
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 foreach my $pair ( ( [2,1], [4,2], [0,-1], [-1,-2] ) )
