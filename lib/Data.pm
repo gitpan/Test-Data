@@ -1,4 +1,4 @@
-# $Id: Data.pm,v 1.9 2003/11/30 01:26:12 petdance Exp $
+# $Id: Data.pm,v 1.11 2004/02/28 12:39:53 comdog Exp $
 package Test::Data;
 use strict;
 
@@ -9,7 +9,7 @@ use Carp qw(carp);
 use Test::Builder;
 
 my $Test = Test::Builder->new();
-$VERSION = 0.93;
+$VERSION = 0.95;
 
 =head1 NAME
 
@@ -28,7 +28,8 @@ and values of data and variables.
 
 $Exporter::Verbose = 0;
 
-sub import {
+sub import 
+	{
     my $self   = shift;
     my $caller = caller;
 

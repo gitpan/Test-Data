@@ -1,4 +1,4 @@
-# $Id: Array.pm,v 1.9 2003/05/12 02:12:14 petdance Exp $
+# $Id: Array.pm,v 1.10 2004/02/28 12:39:53 comdog Exp $
 package Test::Data::Array;
 use strict;
 
@@ -6,9 +6,13 @@ use base qw(Exporter);
 use vars qw(@EXPORT $VERSION);
 
 @EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok
-array_max_ok array_min_ok array_maxstr_ok array_minstr_ok array_sum_ok
-array_length_ok array_empty_ok );
-$VERSION = sprintf "%d.%02d", q$Revision: 1.9 $ =~ m/ (\d+) \. (\d+) /xg;
+	array_max_ok array_min_ok array_maxstr_ok array_minstr_ok array_sum_ok
+	array_length_ok array_empty_ok 
+	array_sortedstr_ascending_ok array_sortedstr_descending_ok
+	array_sorted_ascending_ok array_sorted_descending_ok
+	);
+
+$VERSION = sprintf "%d.%02d", q$Revision: 1.10 $ =~ m/ (\d+) \. (\d+) /xg;
 
 use List::Util qw(sum min max minstr maxstr);
 
@@ -238,6 +242,126 @@ sub array_length_ok(\@$;$)
 	$#$array == $length - 1 ?  $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
+=item array_sortedstr_ascending_ok( ARRAY, [, NAME] )
+
+Ok if each succeeding element is asciibetically greater than or equal
+to the one before.
+
+=cut
+
+sub array_sortedstr_ascending_ok(\@;$)
+	{
+	my $array = shift;
+	my $name  = shift || 'Array is in ascending order';
+	
+	my $last_seen = 0;
+	
+	ELEMENT: foreach my $index ( 1 .. $#$array )
+		{
+		if( $array->[ $index ] ge $array->[ $index - 1 ] )
+			{
+			$last_seen = $index;
+			next;
+			}
+		last;
+		}
+		
+	$last_seen == $#$array ?  
+		$Test->ok( 1, $name ) 
+			: 
+		$Test->ok( 0, $name );
+	}
+	
+=item array_sortedstr_descending_ok( ARRAY, [, NAME] )
+
+Ok if each succeeding element is asciibetically less than or equal to
+the one before. 
+
+=cut
+
+sub array_sortedstr_descending_ok(\@;$)
+	{
+	my $array = shift;
+	my $name  = shift || 'Array is in descending order';
+	
+	my $last_seen = 0;
+	
+	ELEMENT: foreach my $index ( 1 .. $#$array )
+		{
+		if( $array->[ $index ] le $array->[ $index - 1 ] )
+			{
+			$last_seen = $index;
+			next;
+			}
+		last;
+		}
+		
+	$last_seen == $#$array ?  
+		$Test->ok( 1, $name ) 
+			: 
+		$Test->ok( 0, $name );
+	}
+
+=item array_sorted_ascending_ok( ARRAY, [, NAME] )
+
+Ok if each succeeding element is numerically greater than or equal
+to the one before.
+
+=cut
+
+sub array_sorted_ascending_ok(\@;$)
+	{
+	my $array = shift;
+	my $name  = shift || 'Array is in ascending order';
+	
+	my $last_seen = 0;
+	
+	ELEMENT: foreach my $index ( 1 .. $#$array )
+		{
+		if( $array->[ $index ] >= $array->[ $index - 1 ] )
+			{
+			$last_seen = $index;
+			next;
+			}
+		last;
+		}
+		
+	$last_seen == $#$array ?  
+		$Test->ok( 1, $name ) 
+			: 
+		$Test->ok( 0, $name );
+	}
+	
+=item array_sorted_descending_ok( ARRAY, [, NAME] )
+
+Ok if each succeeding element is numerically less than or equal to
+the one before. 
+
+=cut
+
+sub array_sorted_descending_ok(\@;$)
+	{
+	my $array = shift;
+	my $name  = shift || 'Array is in descending order';
+	
+	my $last_seen = 0;
+	
+	ELEMENT: foreach my $index ( 1 .. $#$array )
+		{
+		if( $array->[ $index ] <= $array->[ $index - 1 ] )
+			{
+			$last_seen = $index;
+			next;
+			}
+		last;
+		}
+		
+	$last_seen == $#$array ?  
+		$Test->ok( 1, $name ) 
+			: 
+		$Test->ok( 0, $name );
+	}
+	
 =back
 
 =head1 SEE ALSO
