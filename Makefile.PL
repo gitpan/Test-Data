@@ -1,4 +1,4 @@
-# $Id: Makefile.PL,v 1.7 2002/11/05 01:38:46 comdog Exp $
+# $Id: Makefile.PL,v 1.8 2002/12/20 22:44:36 comdog Exp $
 use ExtUtils::MakeMaker;
 
 sub ExtUtils::MM_Any::test_via_harness
@@ -22,10 +22,10 @@ WriteMakefile
  			'Scalar::Util'          => '0',
  			'Test::Builder'         => '0',
  			'Test::Builder::Tester' => '0',
- 			'Test::Manifest'        => '0.9',
+ 			'Test::Manifest'        => '0.91',
   			'Test::More'            => '0',
-			'Test::Pod'             => '0',
- 			'Test::Prereq'          => '0.18',
+			'Test::Pod'             => '0.90',
+ 			'Test::Prereq'          => '0.19',
  			},
  			
         'PM'        => 

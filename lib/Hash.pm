@@ -1,4 +1,4 @@
-# $Id: Hash.pm,v 1.3 2002/10/23 18:54:38 comdog Exp $
+# $Id: Hash.pm,v 1.4 2002/12/20 22:43:16 comdog Exp $
 package Test::Data::Hash;
 use strict;
 
@@ -8,11 +8,11 @@ use vars qw(@EXPORT $VERSION);
 @EXPORT = qw(exists_ok not_exists_ok
 	hash_value_defined_ok hash_value_undef_ok
 	hash_value_true_ok hash_value_false_ok);
-$VERSION = sprintf "%d.%02d", q$Revision: 1.3 $ =~ m/ (\d+) \. (\d+) /g;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.4 $ =~ m/ (\d+) \. (\d+) /g;
 
 use Test::Builder;
 my $Test = Test::Builder->new();
-	
+
 =head1 NAME
 
 Test::Data::Hash -- test functions for hash variables
@@ -42,7 +42,7 @@ sub exists_ok($\%;$)
 	my $key  = shift;
 	my $hash = shift;
 	my $name = shift || "Hash key [$key] exists";
-	
+
 	$Test->ok( exists $hash->{$key}, $name );
 	}
 
@@ -58,7 +58,7 @@ sub not_exists_ok($\%;$)
 	my $key  = shift;
 	my $hash = shift;
 	my $name = shift || "Hash key [$key] does not exist";
-	
+
 	$Test->ok( exists $hash->{$key} ? 0 : 1, $name );
 	}
 
@@ -74,7 +74,7 @@ sub hash_value_defined_ok($\%;$)
 	my $key  = shift;
 	my $hash = shift;
 	my $name = shift || "Hash value for key [$key] is defined";
-	
+
 	$Test->ok( defined $hash->{$key}, $name );
 	}
 
@@ -90,7 +90,7 @@ sub hash_value_undef_ok($\%;$)
 	my $key  = shift;
 	my $hash = shift;
 	my $name = shift || "Hash value for key [$key] is undef";
-	
+
 	$Test->ok( defined $hash->{$key} ? 0 : 1, $name );
 	}
 
@@ -106,7 +106,7 @@ sub hash_value_true_ok($\%;$)
 	my $key  = shift;
 	my $hash = shift;
 	my $name = shift || "Hash value for key [$key] is true";
-	
+
 	$Test->ok( $hash->{$key}, $name );
 	}
 
@@ -122,7 +122,7 @@ sub hash_value_true_ok($\%;$)
 	my $key  = shift;
 	my $hash = shift;
 	my $name = shift || "Hash value for key [$key] is false";
-	
+
 	$Test->ok( $hash->{$key} ? 0 : 1, $name );
 	}
 
@@ -133,7 +133,7 @@ sub hash_value_true_ok($\%;$)
 L<Test::Data>,
 L<Test::Data::Array>,
 L<Test::Data::Function>,
-L<Test::Data::Scalar>, 
+L<Test::Data::Scalar>,
 L<Test::Builder>
 
 =head1 SOURCE AVAILABILITY
@@ -142,7 +142,7 @@ This source is part of a SourceForge project which always has the
 latest sources in CVS, as well as all of the previous releases.
 
 	https://sourceforge.net/projects/brian-d-foy/
-	
+
 If, for some reason, I disappear from the world, one of the other
 members of the project can shepherd this module appropriately.
 
