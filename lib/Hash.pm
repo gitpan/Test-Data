@@ -1,4 +1,4 @@
-# $Id: Hash.pm,v 1.6 2003/05/11 05:10:54 petdance Exp $
+# $Id: Hash.pm,v 1.7 2004/04/22 16:49:59 comdog Exp $
 package Test::Data::Hash;
 use strict;
 
@@ -8,7 +8,7 @@ use vars qw(@EXPORT $VERSION);
 @EXPORT = qw(exists_ok not_exists_ok
 	hash_value_defined_ok hash_value_undef_ok
 	hash_value_true_ok hash_value_false_ok);
-$VERSION = sprintf "%d.%02d", q$Revision: 1.6 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.7 $ =~ m/ (\d+) \. (\d+) /xg;
 
 use Test::Builder;
 my $Test = Test::Builder->new();
@@ -141,7 +141,7 @@ L<Test::Builder>
 This source is part of a SourceForge project which always has the
 latest sources in CVS, as well as all of the previous releases.
 
-	https://sourceforge.net/projects/brian-d-foy/
+	http://sourceforge.net/projects/brian-d-foy/
 
 If, for some reason, I disappear from the world, one of the other
 members of the project can shepherd this module appropriately.

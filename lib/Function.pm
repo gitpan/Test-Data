@@ -1,4 +1,4 @@
-# $Id: Function.pm,v 1.5 2003/05/11 05:08:05 petdance Exp $
+# $Id: Function.pm,v 1.6 2004/04/22 16:49:59 comdog Exp $
 package Test::Data::Function;
 use strict;
 
@@ -6,7 +6,7 @@ use base qw(Exporter);
 use vars qw(@EXPORT $VERSION);
 
 @EXPORT  = qw(prototype_ok);
-$VERSION = sprintf "%d.%02d", q$Revision: 1.5 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.6 $ =~ m/ (\d+) \. (\d+) /xg;
 
 use Test::Builder;
 my $Test = Test::Builder->new();
@@ -42,8 +42,8 @@ sub prototype_ok(\&$;$)
 
 	unless( $test )
 		{
-		$Test->ok(0, $name);
 		$Test->diag( "Subroutine has prototype [$actual]; expected [$prototype]" );
+		$Test->ok(0, $name);
 		}
 	else
 		{
@@ -67,7 +67,7 @@ L<Test::Builder>
 This source is part of a SourceForge project which always has the
 latest sources in CVS, as well as all of the previous releases.
 
-	https://sourceforge.net/projects/brian-d-foy/
+	http://sourceforge.net/projects/brian-d-foy/
 
 If, for some reason, I disappear from the world, one of the other
 members of the project can shepherd this module appropriately.

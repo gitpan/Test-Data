@@ -1,4 +1,4 @@
-# $Id: Data.pm,v 1.11 2004/02/28 12:39:53 comdog Exp $
+# $Id: Data.pm,v 1.13 2004/04/22 18:57:38 comdog Exp $
 package Test::Data;
 use strict;
 
@@ -9,7 +9,7 @@ use Carp qw(carp);
 use Test::Builder;
 
 my $Test = Test::Builder->new();
-$VERSION = 0.95;
+$VERSION = 0.96;
 
 =head1 NAME
 
@@ -54,6 +54,18 @@ sub VERSION { return $VERSION }
 Plug-in modules define functions for each data type.  See the
 appropriate module.
 
+=head2 How it works
+
+The Test::Data module simply emports functions from Test::Data::*
+modules.  Each module defines a self-contained function, and puts
+that function name into @EXPORT.  Test::Data defines its own 
+import function, but that does not matter to the plug-in modules.
+
+If you want to write a plug-in module, follow the example of one
+that already exists.   Name the module Test::Data::Foo, where you
+replace Foo with the right name.  Test::Data should automatically
+find it.
+
 =head1 SEE ALSO
 
 L<Test::Data::Scalar>,
@@ -67,7 +79,7 @@ L<Test::Builder>
 This source is part of a SourceForge project which always has the
 latest sources in CVS, as well as all of the previous releases.
 
-	https://sourceforge.net/projects/brian-d-foy/
+	http://sourceforge.net/projects/brian-d-foy/
 
 If, for some reason, I disappear from the world, one of the other
 members of the project can shepherd this module appropriately.

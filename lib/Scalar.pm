@@ -1,12 +1,9 @@
-# $Id: Scalar.pm,v 1.12 2003/05/11 05:08:05 petdance Exp $
+# $Id: Scalar.pm,v 1.14 2004/04/22 19:00:11 comdog Exp $
 package Test::Data::Scalar;
 use strict;
 
 use base qw(Exporter);
 use vars qw(@EXPORT $VERSION);
-
-use Scalar::Util;
-use Test::Builder;
 
 @EXPORT = qw(
 	blessed_ok defined_ok dualvar_ok greater_than length_ok
@@ -15,7 +12,10 @@ use Test::Builder;
 	untainted_ok weak_ok undef_ok number_between_ok
 	string_between_ok
 	);
-$VERSION = sprintf "%d.%02d", q$Revision: 1.12 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.14 $ =~ m/ (\d+) \. (\d+) /xg;
+
+use Scalar::Util;
+use Test::Builder;
 
 my $Test = Test::Builder->new();
 
@@ -48,10 +48,10 @@ sub blessed_ok ($;$)
 	my $ok   = Scalar::Util::blessed($_[0]);
 	my $name = $_[1] || 'Scalar is blessed';
 
-	$Test->ok( $ok, $name );
-
 	$Test->diag("Expected a blessed value, but didn't get it\n\t" .
 		qq|Reference type is "$ref"\n| ) unless $ok;
+
+	$Test->ok( $ok, $name );
 	}
 
 =item defined_ok( SCALAR )
@@ -65,10 +65,10 @@ sub defined_ok ($;$)
 	my $ok   = defined $_[0];
 	my $name = $_[1] || 'Scalar is defined';
 
-	$Test->ok( $ok, $name );
-
 	$Test->diag("Expected a defined value, got an undefined one\n", $name )
 		unless $ok;
+
+	$Test->ok( $ok, $name );
 	}
 
 =item undef_ok( SCALAR )
@@ -85,16 +85,16 @@ sub undef_ok ($;$)
 		{
 		my $ok   = not defined $_[0];
 
-		$Test->ok( $ok, $name );
-
 		$Test->diag("Expected an undefined value, got a defined one\n")
 			unless $ok;
+
+		$Test->ok( $ok, $name );
 		}
 	else
 		{
-		$Test->ok( 0, $name );
-
 		$Test->diag("Expected an undefined value, but got no arguments\n");
+
+		$Test->ok( 0, $name );
 		}
 	}
 
@@ -131,11 +131,11 @@ sub greater_than ($$;$)
 
 	my $ok = $value > $bound;
 
-	$Test->ok( $ok, $name );
-
 	$Test->diag("Number is less than the bound.\n\t" .
 		"Expected a number greater than [$bound]\n\t" .
 		"Got [$value]\n") unless $ok;
+
+	$Test->ok( $ok, $name );
 	}
 
 =item length_ok( SCALAR, LENGTH )
@@ -153,11 +153,11 @@ sub length_ok ($$;$)
 	my $actual = length $string;
 	my $ok = $length == $actual;
 
-	$Test->ok( $ok, $name );
-
 	$Test->diag("Length of value not within bounds\n\t" .
 		"Expected length=[$length]\n\t" .
 		"Got [$actual]\n") unless $ok;
+
+	$Test->ok( $ok, $name );
 	}
 
 =item less_than( SCALAR, BOUND )
@@ -174,11 +174,11 @@ sub less_than ($$;$)
 
 	my $ok = $value < $bound;
 
-	$Test->ok( $ok, $name );
-
 	$Test->diag("Number is greater than the bound.\n\t" .
 		"Expected a number less than [$bound]\n\t" .
 		"Got [$value]\n") unless $ok;
+
+	$Test->ok( $ok, $name );
 	}
 
 =item maxlength_ok( SCALAR, LENGTH )
@@ -196,10 +196,10 @@ sub maxlength_ok($$;$)
 	my $actual = length $string;
 	my $ok = $actual <= $length;
 
-	$Test->ok( $ok, $name );
-
 	$Test->diag("Length of value longer than expected\n\t" .
 		"Expected max=[$length]\n\tGot [$actual]\n") unless $ok;
+
+	$Test->ok( $ok, $name );
 	}
 
 =item minlength_ok( SCALAR, LENGTH )
@@ -217,10 +217,10 @@ sub minlength_ok($$;$)
 	my $actual = length $string;
 	my $ok = $actual >= $length;
 
-	$Test->ok( $ok, $name );
-
 	$Test->diag("Length of value shorter than expected\n\t" .
 		"Expected min=[$length]\n\tGot [$actual]\n") unless $ok;
+
+	$Test->ok( $ok, $name );
 	}
 
 =item number_ok( SCALAR )
@@ -261,15 +261,15 @@ sub number_between_ok($$$;$)
 
 	unless( defined $lower and defined $upper )
 		{
-		$Test->ok( 0, $name );
 		$Test->diag("You need to define LOWER and UPPER bounds " .
 			"to use number_between_ok" );
+		$Test->ok( 0, $name );
 		}
 	elsif( $upper < $lower )
 		{
-		$Test->ok( 0, $name );
 		$Test->diag(
 			"Upper bound [$upper] is lower than lower bound [$lower]" );
+		$Test->ok( 0, $name );
 		}
 	elsif( $number >= $lower and $number <= $upper )
 		{
@@ -277,10 +277,10 @@ sub number_between_ok($$$;$)
 		}
 	else
 		{
-		$Test->ok( 0, $name );
 		$Test->diag( "Number [$number] was not within bounds\n",
 			"\tExpected lower bound [$lower]\n",
 			"\tExpected upper bound [$upper]\n" );
+		$Test->ok( 0, $name );
 		}
 	}
 
@@ -300,15 +300,15 @@ sub string_between_ok($$$;$)
 
 	unless( defined $lower and defined $upper )
 		{
-		$Test->ok( 0, $name );
 		$Test->diag("You need to define LOWER and UPPER bounds " .
 			"to use string_between_ok" );
+		$Test->ok( 0, $name );
 		}
 	elsif( $upper lt $lower )
 		{
-		$Test->ok( 0, $name );
 		$Test->diag(
 			"Upper bound [$upper] is lower than lower bound [$lower]" );
+		$Test->ok( 0, $name );
 		}
 	elsif( $string ge $lower and $string le $upper )
 		{
@@ -316,10 +316,10 @@ sub string_between_ok($$$;$)
 		}
 	else
 		{
-		$Test->ok( 0, $name );
 		$Test->diag( "String [$string] was not within bounds\n",
 			"\tExpected lower bound [$lower]\n",
 			"\tExpected upper bound [$upper]\n" );
+		$Test->ok( 0, $name );
 		}
 
 	}
@@ -335,10 +335,10 @@ sub readonly_ok($;$)
 	my $ok   = not Scalar::Util::readonly( $_[0] );
 	my $name = $_[1] || 'Scalar is read-only';
 
-	$Test->ok( $ok, $name );
-
 	$Test->diag("Expected readonly reference, got writeable one\n")
 		unless $ok;
+
+	$Test->ok( $ok, $name );
 	}
 
 =item ref_ok( SCALAR )
@@ -352,10 +352,10 @@ sub ref_ok($;$)
 	my $ok   = ref $_[0];
 	my $name = $_[1] || 'Scalar is a reference';
 
-	$Test->ok( $ok, $name );
-
 	$Test->diag("Expected reference, didn't get it\n")
 		unless $ok;
+
+	$Test->ok( $ok, $name );
 	}
 
 =item ref_type_ok( REF1, REF2 )
@@ -388,10 +388,10 @@ sub strong_ok($;$)
 	my $ok   = not Scalar::Util::isweak( $_[0] );
 	my $name = $_[1] || 'Scalar is not a weak reference';
 
-	$Test->ok( $ok, $name );
-
 	$Test->diag("Expected strong reference, got weak one\n")
 		unless $ok;
+
+	$Test->ok( $ok, $name );
 	}
 
 =item tainted_ok( SCALAR )
@@ -409,10 +409,10 @@ sub tainted_ok($;$)
 	my $ok   = Scalar::Util::tainted( $_[0] );
 	my $name = $_[1] || 'Scalar is tainted';
 
-	$Test->ok( $ok, $name );
-
 	$Test->diag("Expected tainted data, got untainted data\n")
 		unless $ok;
+
+	$Test->ok( $ok, $name );
 	}
 
 =item untainted_ok( SCALAR )
@@ -426,10 +426,10 @@ sub untainted_ok($;$)
 	my $ok = not Scalar::Util::tainted( $_[0] );
 	my $name = $_[1] || 'Scalar is not tainted';
 
-	$Test->ok( $ok, $name );
-
 	$Test->diag("Expected untainted data, got tainted data\n")
 		unless $ok;
+
+	$Test->ok( $ok, $name );
 	}
 
 =item weak_ok( SCALAR )
@@ -443,10 +443,10 @@ sub weak_ok($;$)
 	my $ok = Scalar::Util::isweak( $_[0] );
 	my $name = $_[1] || 'Scalar is a weak reference';
 
-	$Test->ok( $ok, $name );
-
 	$Test->diag("Expected weak reference, got stronge one\n")
 		unless $ok;
+
+	$Test->ok( $ok, $name );
 	}
 
 =back

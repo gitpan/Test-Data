@@ -1,4 +1,4 @@
-# $Id: Array.pm,v 1.10 2004/02/28 12:39:53 comdog Exp $
+# $Id: Array.pm,v 1.11 2004/04/22 16:49:59 comdog Exp $
 package Test::Data::Array;
 use strict;
 
@@ -12,7 +12,7 @@ use vars qw(@EXPORT $VERSION);
 	array_sorted_ascending_ok array_sorted_descending_ok
 	);
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.10 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.11 $ =~ m/ (\d+) \. (\d+) /xg;
 
 use List::Util qw(sum min max minstr maxstr);
 
@@ -377,7 +377,7 @@ L<Test::Builder>
 This source is part of a SourceForge project which always has the
 latest sources in CVS, as well as all of the previous releases.
 
-	https://sourceforge.net/projects/brian-d-foy/
+	http://sourceforge.net/projects/brian-d-foy/
 
 If, for some reason, I disappear from the world, one of the other
 members of the project can shepherd this module appropriately.
