@@ -1,4 +1,4 @@
-# $Id: array.t,v 1.3 2002/09/21 20:14:40 comdog Exp $
+# $Id: array.t,v 1.5 2002/10/23 18:54:38 comdog Exp $
 
 use Test::Builder::Tester tests => 1;
 use Test::More;
@@ -16,5 +16,5 @@ array_max_ok(  6, @array );
 array_min_ok(  3, @array );
 array_empty_ok( @empty );
 array_length_ok( @array, 3 );
-test_test();
+test_test('Array functions work');
 }
