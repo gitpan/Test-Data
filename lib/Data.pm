@@ -1,4 +1,4 @@
-# $Id: Data.pm,v 1.5 2002/10/23 18:54:38 comdog Exp $
+# $Id: Data.pm,v 1.6 2002/11/05 01:43:17 comdog Exp $
 package Test::Data;
 use strict;
 
@@ -9,7 +9,7 @@ use Carp qw(carp);
 use Test::Builder;
 
 my $Test = Test::Builder->new();
-$VERSION = 0.8;
+$VERSION = 0.9;
 
 =head1 NAME
 

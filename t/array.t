@@ -1,11 +1,20 @@
-# $Id: array.t,v 1.5 2002/10/23 18:54:38 comdog Exp $
+# $Id: array.t,v 1.6 2002/10/23 19:38:21 comdog Exp $
 
 use Test::Builder::Tester tests => 1;
 use Test::More;
 use Test::Data qw(Array);
 
 {
-test_out( map "ok $_", 1 .. 8 );
+test_out( 
+"ok 1 - Array contains item",
+"ok 2 - Array contains item only once",
+"ok 3 - Array does not contain item",
+"ok 4 - Array sum is correct",
+"ok 5 - Array maximum is okay",
+"ok 6 - Array minimum is okay",
+"ok 7 - Array is empty",
+"ok 8 - Array length is correct",
+ );
 my @array = 4..6;
 my @empty = ();
 array_any_ok(  5, @array );

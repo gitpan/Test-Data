@@ -1,4 +1,4 @@
-# $Id: Array.pm,v 1.5 2002/10/23 18:54:38 comdog Exp $
+# $Id: Array.pm,v 1.6 2002/10/23 19:16:44 comdog Exp $
 package Test::Data::Array;
 use strict;
 
@@ -8,7 +8,7 @@ use vars qw(@EXPORT $VERSION);
 @EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok 
 array_max_ok array_min_ok array_maxstr_ok array_minstr_ok array_sum_ok
 array_length_ok array_empty_ok );
-$VERSION = sprintf "%d.%02d", q$Revision: 1.5 $ =~ m/ (\d+) \. (\d+) /g;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.6 $ =~ m/ (\d+) \. (\d+) /g;
 
 use List::Util qw(sum min max minstr maxstr);
 
@@ -44,11 +44,11 @@ sub array_any_ok($\@;$)
 	foreach my $try ( @$array )
 		{
 		next unless $try eq $element;
-		$Test->ok(1);
+		$Test->ok( 1, $name );
 		return;
 		}
 		
-	$Test->ok(0);
+	$Test->ok( 0, $name );
 	}
 	
 =item array_none_ok( ITEM, ARRAY [, NAME] )
@@ -66,11 +66,11 @@ sub array_none_ok($\@;$)
 	foreach my $try ( @$array )
 		{
 		next unless $try eq $element;
-		$Test->ok(0);
+		$Test->ok( 0, $name );
 		return;
 		}
 	
-	$Test->ok(1);
+	$Test->ok( 1, $name );
 	}
 
 =item array_once_ok( ITEM, ARRAY [, NAME] )
@@ -91,7 +91,7 @@ sub array_once_ok($\@;$)
 		$seen{$_}++;
 		}
 		
-	$seen{$_} = 1 ? $Test->ok(1) : $Test->ok(0);
+	$seen{$_} = 1 ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 	
 =item array_multiple_ok( ITEM, ARRAY [, NAME] )
@@ -112,7 +112,7 @@ sub array_multiple_ok($\@;$)
 		$seen{$_}++;
 		}
 		
-	$seen{$_} > 1 ? $Test->ok(1) : $Test->ok(0);
+	$seen{$_} > 1 ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
 =item array_max_ok( NUMBER, ARRAY [, NAME] )
@@ -130,7 +130,7 @@ sub array_max_ok($\@;$)
 	
 	my $actual = max( @$array );
 		
-	$actual <= $item ? $Test->ok(1) : $Test->ok(0);
+	$actual <= $item ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
 =item array_min_ok( NUMBER, ARRAY [, NAME] )
@@ -148,7 +148,7 @@ sub array_min_ok($\@;$)
 	
 	my $actual = min( @$array );
 		
-	$actual >= $item ? $Test->ok(1) : $Test->ok(0);
+	$actual >= $item ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 	
 =item array_maxstr_ok( ITEM, ARRAY [, NAME] )
@@ -166,7 +166,7 @@ sub array_maxstr_ok($\@;$)
 	
 	my $actual = maxstr( @$array );
 		
-	$actual ge $item ? $Test->ok(1) : $Test->ok(0);
+	$actual ge $item ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
 =item array_minstr_ok( ITEM, ARRAY [, NAME] )
@@ -184,7 +184,7 @@ sub array_minstr_ok($\@;$)
 	
 	my $actual = minstr( @$array );
 		
-	$actual le $item ? $Test->ok(1) : $Test->ok(0);
+	$actual le $item ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
 =item array_sum_ok( SUM, ARRAY [, NAME] )
@@ -201,7 +201,7 @@ sub array_sum_ok($\@;$)
 	
 	my $actual = sum( @$array );
 	
-	$sum == $actual ? $Test->ok(1) : $Test->ok(0);
+	$sum == $actual ? $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
 =item array_empty_ok( ARRAY [, NAME] )
@@ -215,7 +215,7 @@ sub array_empty_ok(\@;$)
 	my $array = shift;
 	my $name  = shift || 'Array is empty';
 	
-	$#$array == -1 ?  $Test->ok(1) : $Test->ok(0);
+	$#$array == -1 ?  $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 
 
@@ -231,7 +231,7 @@ sub array_length_ok(\@$;$)
 	my $length = shift;
 	my $name   = shift || 'Array length is correct';
 	
-	$#$array == $length - 1 ?  $Test->ok(1) : $Test->ok(0);
+	$#$array == $length - 1 ?  $Test->ok( 1, $name ) : $Test->ok( 0, $name );
 	}
 	
 =back
