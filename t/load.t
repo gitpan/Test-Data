@@ -1,9 +1,10 @@
-# $Id: load.t,v 1.4 2003/05/11 05:08:05 petdance Exp $
+# $Id: load.t,v 1.5 2005/07/06 23:04:18 comdog Exp $
 
 use Test::More;
 
 BEGIN { 
-    @modules = qw( Test::Data Test::Data::Array Test::Data::Function Test::Data::Hash Test::Data::Function );
+    @modules = qw( Test::Data Test::Data::Array Test::Data::Function 
+    	Test::Data::Hash Test::Data::Function );
     plan tests => @modules * 2;
     
 

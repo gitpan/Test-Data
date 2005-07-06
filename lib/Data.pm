@@ -1,4 +1,4 @@
-# $Id: Data.pm,v 1.17 2005/03/08 22:45:24 comdog Exp $
+# $Id: Data.pm,v 1.18 2005/07/06 23:04:18 comdog Exp $
 package Test::Data;
 use strict;
 
@@ -10,7 +10,7 @@ use Test::Builder;
 
 my $Test = Test::Builder->new();
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.17 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.18 $ =~ m/ (\d+) \. (\d+) /xg;
 
 =head1 NAME
 
@@ -66,6 +66,13 @@ If you want to write a plug-in module, follow the example of one
 that already exists.   Name the module Test::Data::Foo, where you
 replace Foo with the right name.  Test::Data should automatically
 find it.
+
+=head1 BUGS
+
+I'm not a very good Windows Perler, so some things don't work as
+they should on Windows. I recently got a Windows box so I can
+test things, but if you run into problems, I can use all the 
+patches or advice you care to send.
 
 =head1 SEE ALSO
 

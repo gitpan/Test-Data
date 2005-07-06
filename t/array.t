@@ -1,4 +1,4 @@
-# $Id: array.t,v 1.10 2004/05/31 06:13:16 comdog Exp $
+# $Id: array.t,v 1.11 2005/07/06 23:04:18 comdog Exp $
 
 use Test::Builder::Tester tests => 3;
 use Test::More;
@@ -82,8 +82,8 @@ test_out(
 	'not ok 4 - Array is in descending order',
 	);
 test_err(
-	"#     Failed test (t/array.t at line $line{up})",
-	"#     Failed test (t/array.t at line $line{down})",
+	"#     Failed test ($0 at line $line{up})",
+	"#     Failed test ($0 at line $line{down})",
 	);
 
 my @bad = ( 'a' .. 'f', 'b' );
@@ -96,8 +96,8 @@ test_out(
 	'not ok 6 - Array is in descending order',
 	);
 test_err(
-	"#     Failed test (t/array.t at line $line{up})",
-	"#     Failed test (t/array.t at line $line{down})",
+	"#     Failed test ($0 at line $line{up})",
+	"#     Failed test ($0 at line $line{down})",
 	);
 
 test_test('Sort comparisons work');
@@ -124,8 +124,8 @@ test_out(
 	'not ok 4 - Array is in descending order',
 	);
 test_err(
-	"#     Failed test (t/array.t at line $line{up})",
-	"#     Failed test (t/array.t at line $line{down})",
+	"#     Failed test ($0 at line $line{up})",
+	"#     Failed test ($0 at line $line{down})",
 	);
 
 my @bad = ( 1 .. 5, 3 );
@@ -138,8 +138,8 @@ test_out(
 	'not ok 6 - Array is in descending order',
 	);
 test_err(
-	"#     Failed test (t/array.t at line $line{up})",
-	"#     Failed test (t/array.t at line $line{down})",
+	"#     Failed test ($0 at line $line{up})",
+	"#     Failed test ($0 at line $line{down})",
 	);
 
 test_test('Sort comparisons work');

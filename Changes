@@ -1,4 +1,7 @@
-# $Id: Changes,v 1.14 2004/09/03 02:07:23 comdog Exp $
+# $Id: Changes,v 1.15 2005/03/08 22:47:55 comdog Exp $
+
+1.17 - Tue Mar  8 17:46:44 2005
+	* Added POD coverage tests: no need to upgrade
 
 1.02 - Thu Sep  2 21:06:33 2004
 * fixed a documentation grammar bug
