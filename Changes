@@ -1,4 +1,11 @@
-# $Id: Changes,v 1.15 2005/03/08 22:47:55 comdog Exp $
+# $Id: Changes,v 1.17 2006/05/18 03:00:22 comdog Exp $
+
+1.19 - Wed May 17 21:59:28 2006
+	* Updates for the distro and kwalitee. There's no need to upgrade.
+
+1.18 - Wed Jul  6 17:07:28 2005
+	* fixed some error messages in t/array.t. No need to upgrade it
+	you already have this module.
 
 1.17 - Tue Mar  8 17:46:44 2005
 	* Added POD coverage tests: no need to upgrade

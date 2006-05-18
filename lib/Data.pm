@@ -1,4 +1,4 @@
-# $Id: Data.pm,v 1.18 2005/07/06 23:04:18 comdog Exp $
+# $Id: Data.pm,v 1.19 2006/05/18 02:58:14 comdog Exp $
 package Test::Data;
 use strict;
 
@@ -10,7 +10,7 @@ use Test::Builder;
 
 my $Test = Test::Builder->new();
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.18 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.19 $ =~ m/ (\d+) \. (\d+) /xg;
 
 =head1 NAME
 
@@ -98,7 +98,7 @@ brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Copyright 2002-2005, brian d foy, All Rights Reserved
+Copyright 2002-2006, brian d foy, All Rights Reserved
 
 You may use, modify, and distribute this under the same terms
 as Perl itself.

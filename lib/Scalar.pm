@@ -1,4 +1,4 @@
-# $Id: Scalar.pm,v 1.16 2005/03/08 22:45:24 comdog Exp $
+# $Id: Scalar.pm,v 1.17 2006/05/18 02:58:14 comdog Exp $
 package Test::Data::Scalar;
 use strict;
 
@@ -12,7 +12,7 @@ use vars qw(@EXPORT $VERSION);
 	untainted_ok weak_ok undef_ok number_between_ok
 	string_between_ok
 	);
-$VERSION = sprintf "%d.%02d", q$Revision: 1.16 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.17 $ =~ m/ (\d+) \. (\d+) /xg;
 
 use Scalar::Util;
 use Test::Builder;
@@ -482,7 +482,7 @@ brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Copyright 2002-2005, brian d foy, All Rights Reserved
+Copyright 2002-2006, brian d foy, All Rights Reserved
 
 You may use, modify, and distribute this under the same terms
 as Perl itself.
