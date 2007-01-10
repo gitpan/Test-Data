@@ -1,4 +1,4 @@
-# $Id: Array.pm,v 1.15 2006/05/18 02:58:14 comdog Exp $
+# $Id: Array.pm,v 1.16 2007/01/10 04:44:55 comdog Exp $
 package Test::Data::Array;
 use strict;
 
@@ -12,7 +12,7 @@ use vars qw(@EXPORT $VERSION);
 	array_sorted_ascending_ok array_sorted_descending_ok
 	);
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.15 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.16 $ =~ m/ (\d+) \. (\d+) /xg;
 
 use List::Util qw(sum min max minstr maxstr);
 
@@ -383,12 +383,12 @@ members of the project can shepherd this module appropriately.
 
 brian d foy, C<< <bdfoy@cpan.org> >>
 
-=head1 COPYRIGHT
+=head1 COPYRIGHT AND LICENSE
 
-Copyright 2002-2006, brian d foy, All Rights Reserved
+Copyright (c) 2002-2007 brian d foy.  All rights reserved.
 
-You may use, modify, and distribute this under the same terms
-as Perl itself.
+This program is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
 
 =cut
 

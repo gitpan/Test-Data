@@ -1,4 +1,4 @@
-# $Id: Hash.pm,v 1.10 2006/05/18 02:58:14 comdog Exp $
+# $Id: Hash.pm,v 1.11 2007/01/10 04:44:55 comdog Exp $
 package Test::Data::Hash;
 use strict;
 
@@ -8,7 +8,7 @@ use vars qw(@EXPORT $VERSION);
 @EXPORT = qw(exists_ok not_exists_ok
 	hash_value_defined_ok hash_value_undef_ok
 	hash_value_true_ok hash_value_false_ok);
-$VERSION = sprintf "%d.%02d", q$Revision: 1.10 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.11 $ =~ m/ (\d+) \. (\d+) /xg;
 
 use Test::Builder;
 my $Test = Test::Builder->new();
@@ -150,12 +150,12 @@ members of the project can shepherd this module appropriately.
 
 brian d foy, C<< <bdfoy@cpan.org> >>
 
-=head1 COPYRIGHT
+=head1 COPYRIGHT AND LICENSE
 
-Copyright 2002-2006, brian d foy, All Rights Reserved
+Copyright (c) 2002-2007 brian d foy.  All rights reserved.
 
-You may use, modify, and distribute this under the same terms
-as Perl itself.
+This program is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
 
 =cut
 
