@@ -1,4 +1,4 @@
-# $Id: function.t,v 1.1 2002/09/02 21:07:04 comdog Exp $
+# $Id: function.t 282 2002-09-02 21:07:04Z comdog $
 
 use Test::More tests => 2;
 use Test::Data qw(Function);

@@ -1,4 +1,4 @@
-# $Id: array.t,v 1.11 2005/07/06 23:04:18 comdog Exp $
+# $Id: array.t 1648 2005-07-06 23:04:18Z comdog $
 
 use Test::Builder::Tester tests => 3;
 use Test::More;

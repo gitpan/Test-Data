@@ -1,4 +1,4 @@
-# $Id: Scalar.pm,v 1.18 2007/01/10 04:44:55 comdog Exp $
+# $Id: Scalar.pm 2340 2007-10-28 01:47:34Z comdog $
 package Test::Data::Scalar;
 use strict;
 
@@ -12,7 +12,8 @@ use vars qw(@EXPORT $VERSION);
 	untainted_ok weak_ok undef_ok number_between_ok
 	string_between_ok
 	);
-$VERSION = sprintf "%d.%02d", q$Revision: 1.18 $ =~ m/ (\d+) \. (\d+) /xg;
+
+($VERSION) = q$Revision: 2340 $ =~ m/ (\d+) /xg;
 
 use Scalar::Util;
 use Test::Builder;

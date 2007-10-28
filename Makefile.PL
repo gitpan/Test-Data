@@ -1,13 +1,14 @@
-# $Id: Makefile.PL,v 1.13 2007/01/10 04:44:55 comdog Exp $
+# $Id: Makefile.PL 2315 2007-09-24 19:16:55Z comdog $
 use ExtUtils::MakeMaker;
 
 eval "use Test::Manifest 1.14";
 
 WriteMakefile (
-	'NAME'           => 'Test::Data',
-	'ABSTRACT'       => 'Check data type properties and values',
-	'VERSION_FROM'   => 'lib/Data.pm',
-	'LICENSE'       => 'perl',
+	'NAME'          => 'Test::Data',
+	'ABSTRACT'      => 'Check data type properties and values',
+	'VERSION_FROM'  => 'lib/Data.pm',
+	'LICENSE'		=> 'perl',
+	'AUTHOR'		=> 'brian d foy <bdfoy@cpan.org>',
         
 	'PREREQ_PM' => {
 		'List::Util'            => '0',

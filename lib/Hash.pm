@@ -1,4 +1,4 @@
-# $Id: Hash.pm,v 1.11 2007/01/10 04:44:55 comdog Exp $
+# $Id: Hash.pm 2340 2007-10-28 01:47:34Z comdog $
 package Test::Data::Hash;
 use strict;
 
@@ -8,7 +8,8 @@ use vars qw(@EXPORT $VERSION);
 @EXPORT = qw(exists_ok not_exists_ok
 	hash_value_defined_ok hash_value_undef_ok
 	hash_value_true_ok hash_value_false_ok);
-$VERSION = sprintf "%d.%02d", q$Revision: 1.11 $ =~ m/ (\d+) \. (\d+) /xg;
+
+($VERSION) = q$Revision: 2340 $ =~ m/ (\d+) /xg;
 
 use Test::Builder;
 my $Test = Test::Builder->new();

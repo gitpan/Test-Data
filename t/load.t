@@ -1,4 +1,4 @@
-# $Id: load.t,v 1.5 2005/07/06 23:04:18 comdog Exp $
+# $Id: load.t 2340 2007-10-28 01:47:34Z comdog $
 
 use Test::More;
 
@@ -9,10 +9,10 @@ BEGIN {
     
 
     foreach $module ( @modules ) {
-	use_ok( $module );
-
-	my $var = '$' . $module . '::VERSION';
-	my $ver = eval $var;
-	cmp_ok( $ver, '>', 0 );
-    }
+		use_ok( $module );
+	
+		my $var = '$' . $module . '::VERSION';
+		my $ver = eval $var;
+		cmp_ok( $ver, '>', 0 );
+		}
 }

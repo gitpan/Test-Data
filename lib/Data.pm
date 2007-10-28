@@ -1,4 +1,4 @@
-# $Id: Data.pm,v 1.20 2007/01/10 04:44:55 comdog Exp $
+# $Id: Data.pm 2340 2007-10-28 01:47:34Z comdog $
 package Test::Data;
 use strict;
 
@@ -10,7 +10,7 @@ use Test::Builder;
 
 my $Test = Test::Builder->new();
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.20 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = 1.21;
 
 =head1 NAME
 

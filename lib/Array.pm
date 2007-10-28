@@ -1,4 +1,4 @@
-# $Id: Array.pm,v 1.16 2007/01/10 04:44:55 comdog Exp $
+# $Id: Array.pm 2340 2007-10-28 01:47:34Z comdog $
 package Test::Data::Array;
 use strict;
 
@@ -12,7 +12,7 @@ use vars qw(@EXPORT $VERSION);
 	array_sorted_ascending_ok array_sorted_descending_ok
 	);
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.16 $ =~ m/ (\d+) \. (\d+) /xg;
+($VERSION) = q$Revision: 2340 $ =~ m/ (\d+) /xg;
 
 use List::Util qw(sum min max minstr maxstr);
 
