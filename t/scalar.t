@@ -1,4 +1,4 @@
-# $Id: scalar.t 1210 2004-04-22 19:00:11Z comdog $
+# $Id$
 
 use Test::Builder::Tester tests => 58;
 use Test::More;

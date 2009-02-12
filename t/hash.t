@@ -1,4 +1,4 @@
-# $Id: hash.t 294 2002-09-03 09:15:44Z comdog $
+# $Id$
 
 use Test::More tests => 1;
 use Test::Data qw(Hash);

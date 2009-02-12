@@ -1,5 +1,7 @@
-# $Id: Makefile.PL 2315 2007-09-24 19:16:55Z comdog $
+# $Id$
 use ExtUtils::MakeMaker;
+
+require 5.006;
 
 eval "use Test::Manifest 1.14";
 

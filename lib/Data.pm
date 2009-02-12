@@ -1,4 +1,4 @@
-# $Id: Data.pm 2340 2007-10-28 01:47:34Z comdog $
+# $Id$
 package Test::Data;
 use strict;
 
@@ -10,7 +10,7 @@ use Test::Builder;
 
 my $Test = Test::Builder->new();
 
-$VERSION = 1.21;
+$VERSION = '1.22';
 
 =head1 NAME
 
@@ -57,7 +57,7 @@ appropriate module.
 
 =head2 How it works
 
-The Test::Data module simply emports functions from Test::Data::*
+The Test::Data module simply imports functions from Test::Data::*
 modules.  Each module defines a self-contained function, and puts
 that function name into @EXPORT.  Test::Data defines its own 
 import function, but that does not matter to the plug-in modules.
@@ -84,13 +84,9 @@ L<Test::Builder>
 
 =head1 SOURCE AVAILABILITY
 
-This source is part of a SourceForge project which always has the
-latest sources in CVS, as well as all of the previous releases.
+This source is in Github:
 
-	http://sourceforge.net/projects/brian-d-foy/
-
-If, for some reason, I disappear from the world, one of the other
-members of the project can shepherd this module appropriately.
+	http://github.com/briandfoy/test-data/tree/master
 
 =head1 AUTHOR
 
@@ -98,7 +94,7 @@ brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2002-2007 brian d foy.  All rights reserved.
+Copyright (c) 2002-2009 brian d foy.  All rights reserved.
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

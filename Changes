@@ -1,4 +1,8 @@
-# $Id: Changes 2341 2007-10-28 01:48:13Z comdog $
+# $Id$
+
+1.22 - Thu Feb 12 16:30:36 2009
+	* Various module cleanups, but no code changes. There's no 
+	reason to upgrade.
 
 1.21 - Sat Oct 27 20:48:15 2007
 	* distro cleanups after moving from CVS to SVN

@@ -1,4 +1,4 @@
-# $Id: import.t 1209 2004-04-22 18:58:53Z comdog $
+# $Id$
 
 use Test::More;
 
