@@ -1,9 +1,10 @@
-# $Id$
 package Test::Data::Array;
 use strict;
 
 use base qw(Exporter);
 use vars qw(@EXPORT $VERSION);
+$VERSION = '1.23';
+
 
 @EXPORT = qw( array_any_ok array_none_ok array_once_ok array_multiple_ok
 	array_max_ok array_min_ok array_maxstr_ok array_minstr_ok array_sum_ok
@@ -12,12 +13,12 @@ use vars qw(@EXPORT $VERSION);
 	array_sorted_ascending_ok array_sorted_descending_ok
 	);
 
-$VERSION = '1.22';
-
 use List::Util qw(sum min max minstr maxstr);
 
 use Test::Builder;
 my $Test = Test::Builder->new();
+
+=encoding utf8
 
 =head1 NAME
 
@@ -373,7 +374,7 @@ L<Test::Builder>
 
 This source is in Github:
 
-	http://github.com/briandfoy/test-data/tree/master
+	https://github.com/briandfoy/test-data
 
 =head1 AUTHOR
 
@@ -381,7 +382,7 @@ brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2002-2009 brian d foy.  All rights reserved.
+Copyright (c) 2002-2012 brian d foy.  All rights reserved.
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

@@ -1,14 +1,13 @@
-# $Id$
-use ExtUtils::MakeMaker;
+use ExtUtils::MakeMaker 6.48;
 
-require 5.006;
+require 5.008;
 
-eval "use Test::Manifest 1.14";
+eval "use Test::Manifest 1.21";
 
 WriteMakefile (
 	'NAME'          => 'Test::Data',
-	'ABSTRACT'      => 'Check data type properties and values',
-	'VERSION_FROM'  => 'lib/Data.pm',
+	'ABSTRACT'      => 'Test data type properties and values',
+	'VERSION_FROM'  => 'lib/Test/Data.pm',
 	'LICENSE'		=> 'perl',
 	'AUTHOR'		=> 'brian d foy <bdfoy@cpan.org>',
         
@@ -17,23 +16,13 @@ WriteMakefile (
 		'Scalar::Util'          => '0',
 		'Test::Builder'         => '0',
 		'Test::Builder::Tester' => '0',
-		'Test::More'            => '0',
+		'Test::More'            => '0.95',
 		},
- 			
-	'PM' => {
-		'lib/Data.pm'     => '$(INST_LIBDIR)/Data.pm',
-		'lib/Scalar.pm'   => '$(INST_LIBDIR)/Data/Scalar.pm',
-		'lib/Array.pm'    => '$(INST_LIBDIR)/Data/Array.pm',
-		'lib/Hash.pm'     => '$(INST_LIBDIR)/Data/Hash.pm',
-		'lib/Function.pm' => '$(INST_LIBDIR)/Data/Function.pm',
-		},
-	
-	'MAN3PODS' => {
-		'lib/Data.pm'     => '$(INST_MAN3DIR)/Test::Data.3',
-		'lib/Scalar.pm'   => '$(INST_MAN3DIR)/Test::Data::Scalar.3',
-		'lib/Array.pm'    => '$(INST_MAN3DIR)/Test::Data::Array.3',
-		'lib/Hash.pm'     => '$(INST_MAN3DIR)/Test::Data::Hash.3',
-		'lib/Function.pm' => '$(INST_MAN3DIR)/Test::Data::Function.3',
+
+	META_MERGE => {
+		resources => {
+			repository => 'https://github.com/briandfoy/test-data',
+			}
 		},
 	
 	clean  => { FILES => 'Test-Data-*' },

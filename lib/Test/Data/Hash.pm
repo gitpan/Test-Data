@@ -1,4 +1,3 @@
-# $Id$
 package Test::Data::Hash;
 use strict;
 
@@ -9,10 +8,12 @@ use vars qw(@EXPORT $VERSION);
 	hash_value_defined_ok hash_value_undef_ok
 	hash_value_true_ok hash_value_false_ok);
 
-$VERSION = '1.22';
+$VERSION = '1.23';
 
 use Test::Builder;
 my $Test = Test::Builder->new();
+
+=encoding utf8
 
 =head1 NAME
 
@@ -141,7 +142,7 @@ L<Test::Builder>
 
 This source is in Github:
 
-	http://github.com/briandfoy/test-data/tree/master
+	https://github.com/briandfoy/test-data
 
 =head1 AUTHOR
 
@@ -149,7 +150,7 @@ brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2002-2009 brian d foy.  All rights reserved.
+Copyright (c) 2002-2012 brian d foy.  All rights reserved.
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
